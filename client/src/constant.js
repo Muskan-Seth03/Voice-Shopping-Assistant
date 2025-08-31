@@ -1,0 +1,1 @@
+export const BASE_URL = "https://voice-shopping-assistant-pjpr.onrender.com";
