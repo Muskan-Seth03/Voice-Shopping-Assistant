@@ -30,7 +30,8 @@ app.enable('json spaces');
 app.enable('strict routing');
 
 app.use(cors({
-  origin: [""],
+  // Replace with your actual Firebase hosting URL
+  origin: ["https://shopvoice-agent-4875a.web.app"],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
