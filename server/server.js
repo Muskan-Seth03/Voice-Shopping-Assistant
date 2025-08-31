@@ -46,15 +46,12 @@ app.on("error", (error) => {
   console.error(error.stack);
 });
 
-// Auth Routes
-app.use(authRoutes);
+// API Routes
+app.use("/api/auth", authRoutes);
+app.use('/api/items', itemsRouter);
 
 // Basic Routes
 app.use(basicRoutes);
-
-// item routes
-app.use('/api/items', itemsRouter);
-
 
 // If no routes handled the request, it's a 404
 app.use((req, res, next) => {
