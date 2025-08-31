@@ -1,5 +1,10 @@
 # 🛒 ShopVoice
 
+🌐 **Live Demo**: [https://shopvoice-agent-4875a.web.app](https://shopvoice-agent-4875a.web.app)
+
+- Frontend (Firebase Hosting)
+- Backend (Render) 
+
 🛍️ **ShopVoice-Agent** is an intelligent voice assistant designed to enhance the shopping experience by providing users with personalized recommendations, answering queries, and facilitating seamless interactions with e-commerce platforms. Utilizing advanced natural language processing and machine learning techniques, ShopVoice-Agent aims to streamline the shopping process and improve customer satisfaction.
 
 ## ✨ Essential Features
