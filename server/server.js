@@ -17,8 +17,14 @@ if (!process.env.DATABASE_URL) {
   process.exit(-1);
 }
 
-if (!process.env.JWT_SECRET || !process.env.REFRESH_TOKEN_SECRET) {
-  console.error("Error: JWT_SECRET and REFRESH_TOKEN_SECRET must be set in .env file.");
+if (
+  !process.env.JWT_SECRET ||
+  !process.env.REFRESH_TOKEN_SECRET ||
+  !process.env.SESSION_SECRET
+) {
+  console.error(
+    "Error: JWT_SECRET, REFRESH_TOKEN_SECRET, and SESSION_SECRET must be set in .env file."
+  );
   process.exit(-1);
 }
 
@@ -37,6 +43,20 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Session configuration
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({
+      mongoUrl: process.env.DATABASE_URL,
+      collectionName: "sessions",
+    }),
+    cookie: { maxAge: 1000 * 60 * 60 * 24 }, // 1 day
+  })
+);
 
 // Database connection
 connectDB();
